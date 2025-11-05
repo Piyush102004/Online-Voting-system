@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cast Your Vote</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container text-center mt-4">
+    <h2 class="mb-4">🗳️ Cast Your Vote</h2>
+
+    <form method="POST">
+        <div class="row justify-content-center">
+            {% for candidate in candidates %}
+            <div class="col-md-3">
+                <div class="card shadow-sm mb-4">
+                    <img src="https://via.placeholder.com/200x150?text={{ candidate[1] }}" class="card-img-top" alt="Candidate Image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ candidate[1] }}</h5>
+                        <button type="submit" name="candidate" value="{{ candidate[0] }}" class="btn btn-primary w-100">
+                            Vote
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </form>
+
+    <a href="/logout" class="btn btn-danger mt-3">Logout</a>
+</div>
+
+</body>
+</html>
